@@ -11,8 +11,8 @@ export default class Header extends Component {
                     <NavLink exact className = 'nav' activeClassName="selected" to="/">
                     Home
                     </NavLink>
-                    <NavLink exact className = 'nav' activeClassName="selected" to="/search">
-                    Search
+                    <NavLink exact className = 'nav' activeClassName="selected" to="/collection">
+                    Tea Collection
                     </NavLink>
                     {/* <NavLink exact className = 'nav' activeClassName="selected" to="/poke/:id">
                     Detail

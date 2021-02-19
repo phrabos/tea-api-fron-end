@@ -7,7 +7,7 @@ export default class HomePage extends Component {
         return (
             <>
 
-                <h1>Welcome to the Home Page! Click Search to See Tea Collection...</h1>
+                <h1>Welcome to the Home Page! Click to See Tea Collection...</h1>
 
             </>
         )

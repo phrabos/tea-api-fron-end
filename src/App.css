@@ -17,7 +17,8 @@ img {
   width: 100px;
   height: 100px;
   /* border-radius: 50%; */
-  border: 1px solid white;
+  border: 2px solid salmon;
+  border-radius: 4px;
 }
 ul {
   display: flex;
@@ -41,15 +42,18 @@ li {
   list-style: none;
   width: 225px;
   height: 225px;
-  border: 2px solid black;
+  border: 2px solid rgb(64, 169, 187);
+  border-radius: 4px;
 }
 .search-box{
   display: flex;
   flex-direction: column;
   width: 20vw;
   align-items: center;
-  border: 1px solid black;
-  margin: 5px;
+  border: 2px solid rgb(64, 169, 187);
+  border-radius: 4px;
+  margin-top: 25px;
+
 
 }
 .wrapper {
@@ -65,12 +69,25 @@ button {
   height: 40px;
 }
 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
   margin: 2px;
   margin-bottom: 10px;
-  width: 100px;
+  width: 150px;
+  background-color: rgb(64, 169, 187);
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
 }
 h4{
   margin: 0px;
+}
+div h4{
+  margin: 0px;
+  font-size: 20px;
 }
 .spinner {
   position: fixed;
@@ -97,7 +114,8 @@ h4{
   list-style: none;
   width: 200px;
   height: fit-content;
-  border: 2px solid black;
+  border: 2px solid rgb(64, 169, 187);
+  border-radius: 4px;
 }
 .page-button{
   /* margin: 5px; */
