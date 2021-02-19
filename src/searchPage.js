@@ -5,6 +5,7 @@ import SideBar from './sideBar.js';
 import request from 'superagent';
 import Spinner from './spinner.js'
 
+
 export default class SearchPage extends Component {
     state = {
         objects: [],
