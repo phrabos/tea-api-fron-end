@@ -25,12 +25,12 @@ export default class App extends Component {
                             render={(routerProps) => <HomePage {...routerProps} />} 
                         />
                         <Route 
-                            path="/collection" 
+                            path="/teas" 
                             exact
                             render={(routerProps) => <SearchPage {...routerProps} />} 
                         />
                         <Route 
-                            path="/tea/:teaName" 
+                            path="/teas/:teaID" 
                             exact
                             render={(routerProps) => <DetailPage {...routerProps} />} 
                         />

@@ -27,14 +27,16 @@ export default class SearchPage extends Component {
         const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/category/${this.state.category}`);
         console.log(data)
         await this.setState ({
-          objects: data.body.teaByCategory,
+          objects: data.body,
           loading: false,
   
         })
+        
       }else {
         const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/`);
+        console.log(data)
         await this.setState ({
-          objects: data.body.data,
+          objects: data.body,
           loading: false,
   
         })
