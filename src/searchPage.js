@@ -5,6 +5,7 @@ import SideBar from './sideBar.js';
 import request from 'superagent';
 import Spinner from './spinner.js'
 
+
 export default class SearchPage extends Component {
     state = {
         objects: [],
@@ -23,17 +24,19 @@ export default class SearchPage extends Component {
       })
 
       if(this.state.category){
-        const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/category/${this.state.category}`);
+        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/category/${this.state.category}`);
         console.log(data)
         await this.setState ({
-          objects: data.body.teaByCategory,
+          objects: data.body,
           loading: false,
   
         })
+        
       }else {
-        const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/`);
+        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/`);
+        console.log(data)
         await this.setState ({
-          objects: data.body.data,
+          objects: data.body,
           loading: false,
   
         })

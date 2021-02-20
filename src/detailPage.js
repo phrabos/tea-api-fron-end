@@ -12,14 +12,15 @@ export default class DetailPage extends Component {
             await this.setState({
             loading: true,
           })
-          const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/${this.props.match.params.teaName}`);
+          const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/${this.props.match.params.teaID}`);
+          console.log(data)
           await this.setState ({
-              objects: data.body.selectedTea,
+              objects: data.body,
               loading: false
             })
-            console.log(this.state);
-    }
-    render() {
+        }
+        render() {
+        console.log(this.state);
         return (
             <div className='details-page'>
             {
@@ -27,7 +28,6 @@ export default class DetailPage extends Component {
                 ? <Spinner />
                 : <div className='ul-detail'>
                 <img src={`../${this.state.objects.image}`} alt='tea' />
-                {console.log(this.state.objects)}
                 <p>Name: {this.state.objects.name}</p>
                 <p>Description: {this.state.objects.description}</p>
                 <p>Category: {this.state.objects.category}</p>
