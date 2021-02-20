@@ -31,6 +31,7 @@ export default class SideBar extends Component {
                 <InputLabel>Category</InputLabel> */}
                 <Select onChange={this.props.handleSortChange}value={this.props.currentValue}>
                     <MenuItem value='' disabled>{this.props.placeholder}</MenuItem>
+                    <MenuItem value=''>View All</MenuItem>
                     <MenuItem value='Yancha'>Yancha</MenuItem>
                     <MenuItem value='Dancong'>Dancong</MenuItem>
                     <MenuItem value='Taiwanese Oolong'>Taiwanese Oolong</MenuItem>

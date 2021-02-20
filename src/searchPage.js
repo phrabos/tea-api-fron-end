@@ -24,7 +24,7 @@ export default class SearchPage extends Component {
       })
 
       if(this.state.category){
-        const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/category/${this.state.category}`);
+        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/category/${this.state.category}`);
         console.log(data)
         await this.setState ({
           objects: data.body.teaByCategory,
@@ -32,7 +32,7 @@ export default class SearchPage extends Component {
   
         })
       }else {
-        const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/`);
+        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/`);
         await this.setState ({
           objects: data.body.data,
           loading: false,

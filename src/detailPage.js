@@ -12,7 +12,7 @@ export default class DetailPage extends Component {
             await this.setState({
             loading: true,
           })
-          const data = await request.get (`https://tea-api-lab-06.herokuapp.com/tea/${this.props.match.params.teaName}`);
+          const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/${this.props.match.params.teaName}`);
           await this.setState ({
               objects: data.body.selectedTea,
               loading: false
