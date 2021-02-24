@@ -9,6 +9,7 @@ import HomePage from './homePage.js';
 import SearchPage from './searchPage.js';
 import Header from './header/header.js';
 import DetailPage from './detailPage.js';
+import CreatePage from './createPage.js';
 import './App.css';
 
 export default class App extends Component {
@@ -33,6 +34,11 @@ export default class App extends Component {
                             path="/teas/:teaID" 
                             exact
                             render={(routerProps) => <DetailPage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
                         />
                         
                     </Switch>

@@ -4,6 +4,7 @@ import './App.css';
 import SideBar from './sideBar.js';
 import request from 'superagent';
 import Spinner from './spinner.js'
+import { getFilteredCategories, getTeas } from './header/api-utils.js';
 
 
 export default class SearchPage extends Component {
@@ -24,19 +25,19 @@ export default class SearchPage extends Component {
       })
 
       if(this.state.category){
-        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/category/${this.state.category}`);
-        console.log(data)
+        const data = await getFilteredCategories(this.state.category)
+        
         await this.setState ({
-          objects: data.body,
+          objects: data,
           loading: false,
   
         })
         
       }else {
-        const data = await request.get (`https://still-plains-76172.herokuapp.com/teas/`);
+        const data = await getTeas();
         console.log(data)
         await this.setState ({
-          objects: data.body,
+          objects: data,
           loading: false,
   
         })

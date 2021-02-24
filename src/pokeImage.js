@@ -7,7 +7,7 @@ export default class PokeImage extends Component {
         return (
             <Link to={`teas/${this.props.id}`} className='imageLinks'>
                 <li>
-                <img className = 'images'src = {this.props.image} alt={this.props.alt}/>
+                <img className = 'images'src = {this.props.image} alt={this.props.alt} onError={(e)=>{e.target.src="gardenia.jpg"}} />
                 <p>Name: {this.props.name}</p>
                 <p>Category: {this.props.category}</p>
                 <p>Price: {this.props.price}</p>
