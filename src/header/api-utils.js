@@ -39,3 +39,9 @@ export async function addTea(teaObject) {
 
     return response.body;
 }
+
+export async function deleteTea(id) {
+    const response = await request.delete(`${URL}/teas/${id}`);
+
+    return response.body;
+}

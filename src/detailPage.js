@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import { getCategories, getSingleTea, updateTea } from './header/api-utils.js';
+import { getCategories, getSingleTea, updateTea, deleteTea } from './header/api-utils.js';
 import Spinner from './spinner.js';
 
 export default class DetailPage extends Component {
@@ -69,6 +69,13 @@ export default class DetailPage extends Component {
         await this.setState({aged: !this.state.aged})
     }
 
+    handleDelete = async () => {
+        
+        await deleteTea(Number(this.props.match.params.teaID))
+
+        this.props.history.push('/teas');
+    };
+
         render() {
 console.log(this.state)
         return (
@@ -109,6 +116,7 @@ console.log(this.state)
                         </label><br></br>
                         <button>Update</button>
                     </form>
+                    <button onClick={this.handleDelete}>Delete Item</button>
                 </div>
             }
             </div>
