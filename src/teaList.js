@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import PokeImage from './pokeImage'
+import TeaImage from './teaImage'
 
 
-export default class PokeList extends Component {
+export default class TeaList extends Component {
     render() {
 
-        const teaLI = this.props.dataObjects.map( object =>(<PokeImage 
+        const teaLI = this.props.dataObjects.map( object =>(<TeaImage 
             key={object.id}
             id={object.id} 
             image={object.image} 

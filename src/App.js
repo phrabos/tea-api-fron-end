@@ -6,9 +6,10 @@ import {
 } from 'react-router-dom';
 
 import HomePage from './homePage.js';
-import SearchPage from './searchPage.js';
+import ListPage from './listPage.js';
 import Header from './header/header.js';
 import DetailPage from './detailPage.js';
+import CreatePage from './createPage.js';
 import './App.css';
 
 export default class App extends Component {
@@ -27,12 +28,17 @@ export default class App extends Component {
                         <Route 
                             path="/teas" 
                             exact
-                            render={(routerProps) => <SearchPage {...routerProps} />} 
+                            render={(routerProps) => <ListPage {...routerProps} />} 
                         />
                         <Route 
                             path="/teas/:teaID" 
                             exact
                             render={(routerProps) => <DetailPage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
                         />
                         
                     </Switch>
