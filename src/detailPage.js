@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import { getCategories, getSingleTea, updateTea, deleteTea } from './header/api-utils.js';
+import { getCategories, getSingleTea, updateTea, deleteTea } from './api-utils.js';
 import Spinner from './spinner.js';
 
 export default class DetailPage extends Component {
@@ -18,9 +18,14 @@ export default class DetailPage extends Component {
     componentDidMount = async () => {
          const categories = await getCategories();
             await this.setState({
+            categories: categories,
             loading: true,
           })
-          const data = await getSingleTea(this.props.match.params.teaID)
+          await this.fetchSingleTea();
+        //   console.log(this.state)
+        }
+    fetchSingleTea = async () => {
+        const data = await getSingleTea(this.props.match.params.teaID)
 
           await this.setState ({
               name: data.name,
@@ -30,10 +35,9 @@ export default class DetailPage extends Component {
               price: data.price,
               aged: data.aged,
               category_id: data.category_id,
-              categories: categories,
               loading: false
             })
-        }
+    }    
     handleSubmit = async (e) => {
         e.preventDefault();
         await updateTea(Number(this.props.match.params.teaID), 
@@ -59,7 +63,7 @@ export default class DetailPage extends Component {
     handleCategoryChange = async (e) => {
         this.setState({
             category_id: Number(e.target.value),
-            // category: 
+            // category: e.target.value,
         })
     }
     handlePriceChange = async (e) => {
@@ -95,7 +99,7 @@ console.log(this.state)
                             <input value={this.state.description} onChange={this.handleDescriptionChange} />
                         </label>
                         <label>
-                            <select value={this.state.category} onChange={this.handleCategoryChange}>
+                            <select value={this.state.category_id} onChange={this.handleCategoryChange}>
                             {
                                 this.state.categories
                                 .map(category =>
@@ -112,7 +116,7 @@ console.log(this.state)
                         </label>
                         <label>
                             Aged:
-                            <input type='checkbox' value={this.state.aged} onChange={this.handleAgedChange} />
+                            <input type='checkbox' value={this.state.aged} onChange={this.handleAgedChange} checked={this.state.aged} />
                         </label><br></br>
                         <button>Update</button>
                     </form>

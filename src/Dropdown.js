@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import data from './data'
 
 
 export default class Dropdown extends Component {

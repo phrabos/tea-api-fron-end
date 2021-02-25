@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import PokeList from './pokeList.js';
+import TeaList from './teaList.js';
 import './App.css';
 import SideBar from './sideBar.js';
 import Spinner from './spinner.js'
-import { getFilteredCategories, getTeas } from './header/api-utils.js';
+import { getFilteredCategories, getTeas } from './api-utils.js';
 
 
-export default class SearchPage extends Component {
+export default class ListPage extends Component {
     state = {
         objects: [],
         category: '',
@@ -48,7 +48,7 @@ export default class SearchPage extends Component {
   
 
     render() {
-   
+   console.log(this.state)
         return (
           <>
             <div className='search-page'>
@@ -63,7 +63,7 @@ export default class SearchPage extends Component {
               {this.state.loading 
               ? <Spinner />
               : <div className='ul-div'>
-              <PokeList 
+              <TeaList 
                 dataObjects={this.state.objects}
               />
                 </div>

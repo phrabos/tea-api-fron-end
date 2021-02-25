@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
 
-export default class PokeImage extends Component {
+export default class TeaImage extends Component {
     render() {
         return (
             <Link to={`teas/${this.props.id}`} className='imageLinks'>
@@ -11,6 +11,7 @@ export default class PokeImage extends Component {
                 <p>Name: {this.props.name}</p>
                 <p>Category: {this.props.category}</p>
                 <p>Price: {this.props.price}</p>
+                <p>Aged: {this.props.aged ? 'Yes' : 'Not Aged'}</p>
 
                 </li>
              </Link>

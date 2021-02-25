@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import { addTea } from './header/api-utils.js';
+import { addTea } from './api-utils.js';
 import Spinner from './spinner.js';
 
 export default class DetailPage extends Component {
