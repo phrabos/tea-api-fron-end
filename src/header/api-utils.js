@@ -19,3 +19,23 @@ export async function getFilteredCategories(category) {
 
     return response.body;
 }
+
+export async function getSingleTea(id) {
+    const response = await request.get(`${URL}/teas/${id}`);
+
+    return response.body;
+}
+
+export async function updateTea(id, teaObject) {
+    const response = await request.put(`${URL}/teas/${id}`)
+    .send(teaObject);
+
+    return response.body;
+}
+
+export async function addTea(teaObject) {
+    const response = await request.post(`${URL}/teas`)
+    .send(teaObject);
+
+    return response.body;
+}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PokeList from './pokeList.js';
 import './App.css';
 import SideBar from './sideBar.js';
-import request from 'superagent';
 import Spinner from './spinner.js'
 import { getFilteredCategories, getTeas } from './header/api-utils.js';
 
@@ -11,12 +10,10 @@ export default class SearchPage extends Component {
     state = {
         objects: [],
         category: '',
-        search: '',
         loading: false,
     }
     componentDidMount = async () =>{
         await this.fetchTea();
-
     }
 
     fetchTea = async () => {
@@ -30,7 +27,6 @@ export default class SearchPage extends Component {
         await this.setState ({
           objects: data,
           loading: false,
-  
         })
         
       }else {
@@ -39,20 +35,8 @@ export default class SearchPage extends Component {
         await this.setState ({
           objects: data,
           loading: false,
-  
         })
       }
-
-    }
-
-    handleSearchChange = async (e) => {
-        this.setState({
-          search: e.target.value,
-        })
-      }
-
-    handleSearchButton = async () => {
-      await this.fetchTea()
     }
 
     handleSortChange = async (e) => {
@@ -61,15 +45,6 @@ export default class SearchPage extends Component {
       })
       await this.fetchTea();
     }
-    handleClearButtonChange = async () => {
-      await this.setState({
-
-        category: '',
-        search: '',
-
-      })
-      await this.fetchTea()
-      }
   
 
     render() {
@@ -77,29 +52,21 @@ export default class SearchPage extends Component {
         return (
           <>
             <div className='search-page'>
-
-            <SideBar 
-            // searchValue = {this.handleSearchChange}
-            // handleSearchButton = {this.handleSearchButton}
-            buttonHandler = {this.handleClearButtonChange}
-            handleSortChange = {this.handleSortChange}
-            options = {['Yancha', 'Taiwanese Oolong', 'Dancong', 'Rolled Oolong', 'Pu\'erh']}
-            currentValue={this.state.category}
-            placeholder={'-Category-'}
-
-
-            />
+              <SideBar 
+                handleSortChange = {this.handleSortChange}
+                options = {['Yancha', 'Taiwanese Oolong', 'Dancong', 'Rolled Oolong', 'Pu\'erh']  }
+                currentValue={this.state.category}
+                placeholder={'-Category-'}
+              />
             </div>
             <div className='images-section'>
-
-
-            {this.state.loading 
-            ? <Spinner />
-            : <div className='ul-div'>
-            <PokeList 
-            dataObjects={this.state.objects}
-            />
-            </div>
+              {this.state.loading 
+              ? <Spinner />
+              : <div className='ul-div'>
+              <PokeList 
+                dataObjects={this.state.objects}
+              />
+                </div>
             }
             </div>
           </> 
